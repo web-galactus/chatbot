@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chatbot</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        .chatbox { width: 400px; margin: auto; padding: 20px; border: 2px solid #333; border-radius: 10px; }
+        input[type=text] { width: 80%; padding: 10px; }
+        input[type=submit] { padding: 10px; }
+        .response { margin-top: 20px; font-weight: bold; color: darkblue; }
+         .image{
+           padding-right: 200%;
+           margin-left: 30%;
+         }
+         
+        
+    </style>
+</head>
+<body>
+    <div class="image">
+        <img src="https://www.shutterstock.com/image-vector/happy-robot-3d-ai-character-600nw-2464455965.jpg" alt="image" width="400px" height="200px">
+    </div>
+    <div class="chatbox">
+        <h2>MB</h2>
+        <form method="POST">
+            <input type="text" name="user_input" placeholder="Ask me about AI..." required>
+            <input type="submit" value="Ask">
+        </form>
+
+        {% if response %}
+        <div class="response">
+            MB: {{ response }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
