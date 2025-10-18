@@ -1,37 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Chatbot</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 30px; }
-        .chatbox { width: 400px; margin: auto; padding: 20px; border: 2px solid #333; border-radius: 10px; }
-        input[type=text] { width: 80%; padding: 10px; }
-        input[type=submit] { padding: 10px; }
-        .response { margin-top: 20px; font-weight: bold; color: darkblue; }
-         .image{
-           padding-right: 200%;
-           margin-left: 30%;
-         }
-         
-        
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        /* Container to center everything */
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        /* Chatbot image */
+        .image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px auto;
+            border-radius: 10px;
+        }
+
+        /* Chatbox styling */
+        .chatbox {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .chatbox h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Form styling */
+        input[type=text] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            padding: 12px;
+            background-color: #3333cc;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #000099;
+        }
+
+        /* Response styling */
+        .response {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e6f0ff;
+            border-left: 4px solid #3333cc;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #003366;
+            word-wrap: break-word;
+        }
     </style>
 </head>
 <body>
-    <div class="image">
-        <img src="https://www.shutterstock.com/image-vector/happy-robot-3d-ai-character-600nw-2464455965.jpg" alt="image" width="400px" height="200px">
-    </div>
-    <div class="chatbox">
-        <h2>MB</h2>
-        <form method="POST">
-            <input type="text" name="user_input" placeholder="Ask me about AI..." required>
-            <input type="submit" value="Ask">
-        </form>
-
-        {% if response %}
-        <div class="response">
-            MB: {{ response }}
+    <div class="container">
+        <!-- Image -->
+        <div class="image">
+            <img src="https://www.shutterstock.com/image-vector/happy-robot-3d-ai-character-600nw-2464455965.jpg" alt="AI Robot">
         </div>
-        {% endif %}
+
+        <!-- Chatbox -->
+        <div class="chatbox">
+            <h2>MB</h2>
+            <form method="POST">
+                <input type="text" name="user_input" placeholder="Ask me about AI..." required>
+                <input type="submit" value="Ask">
+            </form>
+
+            {% if response %}
+            <div class="response">
+                MB: {{ response }}
+            </div>
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>
